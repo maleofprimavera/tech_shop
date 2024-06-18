@@ -11,11 +11,13 @@ server:
   port: 8080
 
 spring:
+  # tao database trong ten la shopdb tren mysql,thay doi username, pass
   datasource:
     url: jdbc:mysql://localhost:3306/shopdb
     username: root
     password: nam123
     driver-class-name: com.mysql.cj.jdbc.Driver
+  # lam tuong tu voi cai nay nhe, hien tai dang loi, nma vx run duoc
   second-datasource:
     url: jdbc:mysql://localhost:3306/user_registration
     username: root
