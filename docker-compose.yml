@@ -1,10 +1,9 @@
-version: "3.7"
 services:
   api_service:
     build: .
     restart: always
     ports:
-      - 8000:8080
+      - "8000:8080"
     networks:
       - networkmysql
     environment:

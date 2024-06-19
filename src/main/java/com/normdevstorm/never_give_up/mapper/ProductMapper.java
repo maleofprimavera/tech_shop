@@ -1,5 +1,4 @@
 package com.normdevstorm.never_give_up.mapper;
-import com.normdevstorm.never_give_up.model.Cart;
 import org.mapstruct.*;
 import com.normdevstorm.never_give_up.dto.ProductDto;
 import com.normdevstorm.never_give_up.model.Product;
