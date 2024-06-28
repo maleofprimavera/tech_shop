@@ -41,5 +41,7 @@ public class ProductDto implements Serializable {
     private List<ProductImage> productImages;
     private BigDecimal salePrice;
     private LocalDateTime dateCreated;
+    private boolean newArrival;
+    private boolean featured;
 
 }

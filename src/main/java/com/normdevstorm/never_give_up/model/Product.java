@@ -4,10 +4,12 @@ import com.normdevstorm.never_give_up.utils.ProductTypeEnum;
 import jakarta.annotation.Nullable;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Null;
 import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.boot.context.properties.bind.DefaultValue;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.math.BigDecimal;
@@ -35,7 +37,7 @@ public class Product {
     @Column(length = 2083)
     private String imageUrl;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true  )
+    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<ProductImage> productImages;
 
     @NotNull
@@ -51,6 +53,11 @@ public class Product {
     @Enumerated(EnumType.STRING)
     private ProductTypeEnum productTypeEnum;
     private LocalDateTime dateCreated;
-
+    @Nullable
+    @Column(columnDefinition = "boolean default true")
+    private boolean newArrival;
+    @Nullable
+    @Column(columnDefinition = "boolean default true")
+    private boolean featured;
 
 }
