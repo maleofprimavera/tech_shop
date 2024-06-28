@@ -22,10 +22,7 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @Value
-public class ProductDto implements Serializable {
-    @NotNull
-    @Size(max = 255)
-    String productId;
+public class ProductUpdateDto implements Serializable {
     @NotNull
     @Size(max = 255)
     String name;
@@ -40,6 +37,4 @@ public class ProductDto implements Serializable {
     ProductTypeEnum productTypeEnum;
     private List<ProductImage> productImages;
     private BigDecimal salePrice;
-    private LocalDateTime dateCreated;
-
 }

@@ -3,9 +3,9 @@ services:
     build: .
     restart: always
     ports:
-      - "8000:8080"
+      - "8080:8080"
     networks:
-      - networkmysql
+      - bridge
     environment:
       - spring.datasource.url=jdbc:mysql://mysqldb:3306/shopdb?allowPublicKeyRetrieval=true
       - spring.datasource.username=root
@@ -18,17 +18,17 @@ services:
 
   mysqldb:
     build: .
-    container_name: mysqlcontainer-num02
+    container_name: mysqldb
     image: "mysql:8.0"
     restart: always
     ports:
-      - 3308:3306
+      - 3307:3306
     networks:
-      - networkmysql
+      - bridge
     environment:
       MYSQL_DATABASE: shopdb
       MYSQL_PASSWORD: nam123
       MYSQL_ROOT_PASSWORD: nam123
       MYSQL_NATIVE_PASSWORD: nam123
 networks:
-  networkmysql:
+  bridge:

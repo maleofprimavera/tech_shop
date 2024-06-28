@@ -1,7 +1,8 @@
 package com.normdevstorm.never_give_up.repository;
 
 import com.normdevstorm.never_give_up.model.Product;
-import jakarta.persistence.Table;
+import com.normdevstorm.never_give_up.model.ProductImage;
+import com.normdevstorm.never_give_up.utils.ProductTypeEnum;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -12,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,4 +35,11 @@ public interface ProductRepository extends JpaRepository<Product, String> {
     @Modifying
     @Query("delete from Product p where p.productId = :productId")
     int deleteByProductId(String productId);
+
+    @Transactional
+    @Modifying
+    @Query("""
+            update Product p set p.productId = ?1, p.name = ?2, p.imageUrl = ?3, p.productImages = ?4, p.price = ?5, p.salePrice = ?6, p.description = ?7, p.productTypeEnum = ?8, p.dateCreated = ?9
+            where p.productId like ?10""")
+    int updateProductIdAndNameAndImageUrlAndProductImagesAndPriceAndSalePriceAndDescriptionAndProductTypeEnumAndDateCreatedByProductIdLike(String productId, String name, String imageUrl, List<ProductImage> productImages, BigDecimal price, BigDecimal salePrice, String description, ProductTypeEnum productTypeEnum, LocalDateTime dateCreated, @NonNull String productId1);
 }

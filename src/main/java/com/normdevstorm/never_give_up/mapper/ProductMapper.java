@@ -10,7 +10,12 @@ public interface ProductMapper {
             @Mapping(source = "productId", target = "productId"),
             @Mapping(source = "name", target = "name"),
             @Mapping(source = "price", target = "price"),
-            @Mapping(source = "imageUrl", target = "imageUrl")
+            @Mapping(source = "imageUrl", target = "imageUrl"),
+            @Mapping(source = "description", target = "description"),
+            @Mapping(source = "productTypeEnum", target = "productTypeEnum"),
+            @Mapping(source = "productImages", target = "productImages"),
+            @Mapping(source = "salePrice", target = "salePrice"),
+            @Mapping(source = "dateCreated", target = "dateCreated")
     })
     ProductDto toDTO(Product product);
 
@@ -18,7 +23,13 @@ public interface ProductMapper {
             @Mapping(source = "productId", target = "productId"),
             @Mapping(source = "name", target = "name"),
             @Mapping(source = "price", target = "price"),
-            @Mapping(source = "imageUrl", target = "imageUrl")
+            @Mapping(source = "imageUrl", target = "imageUrl"),
+            @Mapping(source = "description", target = "description"),
+            @Mapping(source = "productTypeEnum", target = "productTypeEnum"),
+            @Mapping(source = "productImages", target = "productImages"),
+            @Mapping(source = "salePrice", target = "salePrice"),
+            @Mapping(source = "dateCreated", target = "dateCreated")
     })
     Product toModel(ProductDto dto);
+
 }
