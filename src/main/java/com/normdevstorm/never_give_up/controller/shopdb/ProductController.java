@@ -3,6 +3,8 @@ package com.normdevstorm.never_give_up.controller.shopdb;
 import com.normdevstorm.never_give_up.dto.ProductDto;
 import com.normdevstorm.never_give_up.dto.ProductUpdateDto;
 import com.normdevstorm.never_give_up.service.ProductService;
+import com.normdevstorm.never_give_up.utils.ProductTypeEnum;
+import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseBodyAdvice;
@@ -18,6 +20,11 @@ public class  ProductController {
     @GetMapping
     public List<ProductDto> getAllProducts() {
         return productService.getAllProducts();
+    }
+
+    @GetMapping("/category")
+    public List<ProductDto> getProductByCategory(@PathParam("category") ProductTypeEnum category){
+        return productService.getProductByCategory(category);
     }
 
     @PostMapping("/add")

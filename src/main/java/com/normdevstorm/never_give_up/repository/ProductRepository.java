@@ -42,4 +42,6 @@ public interface ProductRepository extends JpaRepository<Product, String> {
             update Product p set p.productId = ?1, p.name = ?2, p.imageUrl = ?3, p.productImages = ?4, p.price = ?5, p.salePrice = ?6, p.description = ?7, p.productTypeEnum = ?8, p.dateCreated = ?9
             where p.productId like ?10""")
     int updateProductIdAndNameAndImageUrlAndProductImagesAndPriceAndSalePriceAndDescriptionAndProductTypeEnumAndDateCreatedByProductIdLike(String productId, String name, String imageUrl, List<ProductImage> productImages, BigDecimal price, BigDecimal salePrice, String description, ProductTypeEnum productTypeEnum, LocalDateTime dateCreated, @NonNull String productId1);
+
+    List<Product> findByProductTypeEnumOrderByNameAsc(ProductTypeEnum productTypeEnum);
 }

@@ -42,6 +42,11 @@ public class ProductService {
         return productList.stream().map(productMapper::toDTO).collect(Collectors.toList());
     }
 
+    public List<ProductDto> getProductByCategory(ProductTypeEnum category){
+        List<Product> productList = productRepository.findByProductTypeEnumOrderByNameAsc(category);
+        return productList.stream().map(productMapper::toDTO).collect(Collectors.toList());
+    }
+
     public void saveProducts(List<ProductDto> products){
         productRepository.saveAll(products.stream().map(productMapper::toModel).collect(Collectors.toList()));
     }
