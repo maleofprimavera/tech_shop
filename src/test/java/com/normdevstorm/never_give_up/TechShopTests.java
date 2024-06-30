@@ -6,7 +6,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
 @SpringBootConfiguration
-class NeverGiveUpApplicationTests {
+class TechShopTests {
 
 	@Test
 	void contextLoads() {
